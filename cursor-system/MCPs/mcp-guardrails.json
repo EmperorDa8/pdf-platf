@@ -1,0 +1,41 @@
+{
+    "name": "Cursor Agent Guardrails",
+    "description": "Defines hard boundaries to prevent Cursor agents from generating out-of-scope features or architecture changes.",
+    "enforced": true,
+    "rules": [
+      {
+        "rule": "Do not add any subscription tier beyond Free and Pro.",
+        "severity": "high"
+      },
+      {
+        "rule": "Do not implement tagging or tag filters.",
+        "severity": "high"
+      },
+      {
+        "rule": "Do not make document requests visible to other users.",
+        "severity": "critical"
+      },
+      {
+        "rule": "Do not add public-facing user profiles or profile editing features.",
+        "severity": "medium"
+      },
+      {
+        "rule": "Do not add non-requested integrations (e.g. Google Drive, Calendars).",
+        "severity": "high"
+      },
+      {
+        "rule": "Do not add analytics dashboards beyond download count and subscription status.",
+        "severity": "medium"
+      },
+      {
+        "rule": "Do not use libraries that increase cost or complexity unless explicitly approved.",
+        "severity": "medium"
+      },
+      {
+        "rule": "Do not expose any admin-only logic to non-admin users.",
+        "severity": "critical"
+      }
+    ]
+  }
+  
+  

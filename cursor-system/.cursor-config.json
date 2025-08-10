@@ -1,0 +1,38 @@
+{
+    "projectName": "PDF Library App",
+    "primarySpec": "SPECIFICATION.md",
+    "mcpDirectory": "./cursor-system/MCPs",
+    "promptBlueprints": "./cursor-system/prompt-blueprints",
+    "guardrails": "./cursor-system/MCPs/mcp-guardrails.json",
+    "envReference": ".env.example",
+    "deploymentTarget": "Vercel",
+    "supabase": {
+      "useServiceRole": true,
+      "storageBucket": "documents",
+      "enableRLS": true
+    },
+    "stripe": {
+      "plans": ["Free", "Pro"],
+      "useCustomerPortal": true
+    },
+    "auth": {
+      "provider": ["email", "phone", "google", "facebook"],
+      "redirectURL": "https://yourdomain.com/auth/callback"
+    },
+    "adminEmail": "YOUR_EMAIL_HERE",
+    "defaultTasks": [
+      "Review SPECIFICATION.md",
+      "Apply Supabase schema",
+      "Deploy app to Vercel",
+      "Enable Stripe checkout",
+      "Set up email request form",
+      "Test PDF upload flow"
+    ],
+    "enhancedMCPs": [
+      "Firecrawl",
+      "Qdrant",
+      "E2B",
+      "Tavily",
+      "Browser Use"
+    ]
+  }
