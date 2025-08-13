@@ -7,7 +7,7 @@ This guide will help you set up the Supabase database for the PDF Library applic
 1. Go to [supabase.com](https://supabase.com)
 2. Sign up or log in
 3. Create a new project
-4. Wait for the project to be ready
+4. Wait for the project to be ready,
 
 ## 2. Get Project Credentials
 
