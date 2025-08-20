@@ -11,7 +11,7 @@ export default function Home() {
         <h1 className="text-5xl font-bold text-gray-900 mb-6">
           Your Premium PDF Library
         </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
           Access a curated collection of high-quality PDFs. Free tier available, 
           upgrade to Pro for exclusive content and unlimited downloads.
         </p>
@@ -43,7 +43,7 @@ export default function Home() {
               <CardTitle>Curated Content</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription>
+              <CardDescription className="text-gray-700">
                 Hand-picked PDFs across various categories and topics
               </CardDescription>
             </CardContent>
@@ -57,7 +57,7 @@ export default function Home() {
               <CardTitle>Easy Access</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription>
+              <CardDescription className="text-gray-700">
                 Simple download process with organized categories
               </CardDescription>
             </CardContent>
@@ -71,7 +71,7 @@ export default function Home() {
               <CardTitle>Secure Platform</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription>
+              <CardDescription className="text-gray-700">
                 Built with enterprise-grade security and privacy
               </CardDescription>
             </CardContent>
@@ -85,7 +85,7 @@ export default function Home() {
               <CardTitle>Community Driven</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription>
+              <CardDescription className="text-gray-700">
                 Request new content and contribute to our growing library
               </CardDescription>
             </CardContent>
@@ -99,7 +99,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Ready to Start Exploring?
           </h2>
-          <p className="text-lg text-gray-600 mb-8">
+          <p className="text-lg text-gray-700 mb-8">
             Join thousands of users who trust our PDF library for their learning and research needs.
           </p>
           <Link href="/auth/signup">
@@ -112,3 +112,4 @@ export default function Home() {
     </div>
   )
 }
+

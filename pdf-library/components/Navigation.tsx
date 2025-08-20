@@ -32,6 +32,9 @@ export default function Navigation() {
             <Link href="/pricing" className="text-gray-600 hover:text-gray-900">
               Pricing
             </Link>
+            <Link href="/gallery" className="text-gray-600 hover:text-gray-900">
+              Gallery
+            </Link>
             {user && (
               <Link href="/dashboard" className="text-gray-600 hover:text-gray-900">
                 Dashboard
@@ -47,7 +50,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-4">
             {user ? (
               <div className="flex items-center space-x-4">
-                <span className="text-sm text-gray-600">{user.email}</span>
+                <span className="text-sm text-slate-200">{user.email}</span>
                 {user.is_admin && (
                   <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
                     <Crown className="w-3 h-3 mr-1" />

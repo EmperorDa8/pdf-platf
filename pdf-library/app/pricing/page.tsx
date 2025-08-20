@@ -19,8 +19,20 @@ export default function Pricing() {
 
     setLoading(true)
     try {
-      // TODO: Integrate with Stripe checkout
-      toast.info('Stripe integration coming soon!')
+      const res = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ priceId: 'YOUR_STRIPE_PRICE_ID' }), // Replace with your actual price ID
+      })
+
+      const { sessionId } = await res.json()
+
+      const stripe = await getStripe()
+      if (stripe) {
+        stripe.redirectToCheckout({ sessionId })
+      }
     } catch (error) {
       toast.error('Failed to start checkout')
     } finally {

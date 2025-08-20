@@ -34,7 +34,7 @@ export default function Dashboard() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
+          <p className="mt-4 text-gray-700">Loading...</p>
         </div>
       </div>
     )
@@ -60,7 +60,7 @@ export default function Dashboard() {
               )}
             </div>
             <div className="flex items-center space-x-4">
-              <span className="text-sm text-gray-600">{user.email}</span>
+              <span className="text-sm text-gray-800">{user.email}</span>
               <Button variant="outline" size="sm" onClick={handleSignOut}>
                 <LogOut className="w-4 h-4 mr-2" />
                 Sign Out
@@ -84,11 +84,11 @@ export default function Dashboard() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Total Downloads</CardTitle>
-                  <Download className="h-4 w-4 text-muted-foreground" />
+                  <Download className="h-4 w-4 text-gray-600" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">0</div>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-gray-600">
                     Start downloading PDFs to see your activity
                   </p>
                 </CardContent>
@@ -97,13 +97,13 @@ export default function Dashboard() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Access Level</CardTitle>
-                  <User className="h-4 w-4 text-muted-foreground" />
+                  <User className="h-4 w-4 text-gray-600" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">
                     {isPro ? 'Pro' : 'Free'}
                   </div>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-gray-600">
                     {isPro ? 'Full access to all PDFs' : 'Access to free PDFs only'}
                   </p>
                 </CardContent>
@@ -112,11 +112,11 @@ export default function Dashboard() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">PDFs Available</CardTitle>
-                  <FileText className="h-4 w-4 text-muted-foreground" />
+                  <FileText className="h-4 w-4 text-gray-600" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">0</div>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-gray-600">
                     No PDFs uploaded yet
                   </p>
                 </CardContent>
@@ -127,7 +127,7 @@ export default function Dashboard() {
               <Card>
                 <CardHeader>
                   <CardTitle>Upgrade to Pro</CardTitle>
-                  <CardDescription>
+                  <CardDescription className="text-gray-700">
                     Get access to exclusive PDFs and unlimited downloads
                   </CardDescription>
                 </CardHeader>
@@ -146,14 +146,21 @@ export default function Dashboard() {
             <Card>
               <CardHeader>
                 <CardTitle>PDF Library</CardTitle>
-                <CardDescription>
-                  Browse and download available PDFs
+                <CardDescription className="text-gray-700">
+                  Browse our curated collections of documents.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-center py-8 text-gray-500">
-                  <FileText className="w-12 h-12 mx-auto mb-4 text-gray-300" />
-                  <p>No PDFs available yet. Check back soon!</p>
+                <div className="text-center py-12">
+                  <h3 className="text-lg font-semibold text-gray-800">Explore the Document Gallery</h3>
+                  <p className="mt-2 text-sm text-gray-600">
+                    Access a wide range of financial reports, technical specifications, and case studies.
+                  </p>
+                  <Link href="/gallery" passHref>
+                    <Button className="mt-6 bg-blue-600 hover:bg-blue-700">
+                      Browse Collections
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -163,7 +170,7 @@ export default function Dashboard() {
             <Card>
               <CardHeader>
                 <CardTitle>Request New PDF</CardTitle>
-                <CardDescription>
+                <CardDescription className="text-gray-700">
                   Can't find what you're looking for? Request a new PDF
                 </CardDescription>
               </CardHeader>
@@ -181,24 +188,24 @@ export default function Dashboard() {
             <Card>
               <CardHeader>
                 <CardTitle>Account Information</CardTitle>
-                <CardDescription>
+                <CardDescription className="text-gray-700">
                   Manage your account settings and subscription
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <label className="text-sm font-medium text-gray-700">Email</label>
+                  <label className="text-sm font-medium text-gray-800">Email</label>
                   <p className="text-sm text-gray-900">{user.email}</p>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-700">Account Type</label>
+                  <label className="text-sm font-medium text-gray-800">Account Type</label>
                   <p className="text-sm text-gray-900">
                     {isPro ? 'Pro Subscription' : 'Free Account'}
                   </p>
                 </div>
                 {isPro && (
                   <div>
-                    <label className="text-sm font-medium text-gray-700">Subscription Status</label>
+                    <label className="text-sm font-medium text-gray-800">Subscription Status</label>
                     <p className="text-sm text-green-600">Active</p>
                   </div>
                 )}
