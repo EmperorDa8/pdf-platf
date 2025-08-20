@@ -1,7 +1,13 @@
 import { generateAbstractThumbnail } from '@/lib/generate-thumbnail';
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(req: NextRequest, context: { params: { id: string } }) {
+type RouteContext = {
+  params: {
+    id: string;
+  };
+};
+
+export const GET = async (req: NextRequest, context: RouteContext): Promise<NextResponse> => {
   try {
     const { id } = context.params;
     if (!id) {
@@ -19,4 +25,4 @@ export async function GET(req: NextRequest, context: { params: { id: string } })
     console.error('Error generating thumbnail:', error);
     return new NextResponse('Internal Server Error', { status: 500 });
   }
-}
+};
