@@ -101,7 +101,8 @@ export default function RequestPDF() {
             </div>
             <CardTitle className="text-3xl font-bold">Request a New PDF</CardTitle>
             <CardDescription className="text-lg">
-              Can&apos;t find what you&apos;re looking for? Let us know and we&apos;ll add it to our library.</CardDescription>
+              Can&apos;t find what you&apos;re looking for? Let us know and we&apos;ll add it to our library.
+            </CardDescription>
           </CardHeader>
           
           <CardContent>
@@ -173,78 +174,6 @@ export default function RequestPDF() {
                   <li>• We&apos;ll review your request within 24-48 hours</li>
                   <li>• If approved, we&apos;ll source and add the PDF to our library</li>
                   <li>• You&apos;ll receive an email notification when it&apos;s available</li>
-            </CardDescription>
-          </CardHeader>
-          
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <Label htmlFor="title">PDF Title *</Label>
-                <Input
-                  id="title"
-                  value={formData.title}
-                  onChange={(e) => handleInputChange('title', e.target.value)}
-                  placeholder="Enter the title of the PDF you need"
-                  required
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="description">Description *</Label>
-                <Textarea
-                  id="description"
-                  value={formData.description}
-                  onChange={(e) => handleInputChange('description', e.target.value)}
-                  placeholder="Describe what you're looking for, including topics, authors, or specific content you need"
-                  rows={4}
-                  required
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="category">Category</Label>
-                <Select
-                  value={formData.category}
-                  onValueChange={(value) => handleInputChange('category', value)}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a category (optional)" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {categories.map((category) => (
-                      <SelectItem key={category} value={category}>
-                        {category}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div>
-                <Label htmlFor="urgency">Urgency Level</Label>
-                <Select
-                  value={formData.urgency}
-                  onValueChange={(value) => handleInputChange('urgency', value)}
-                >
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {urgencyLevels.map((level) => (
-                      <SelectItem key={level.value} value={level.value}>
-                        {level.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <h4 className="font-medium text-blue-900 mb-2">What happens next?</h4>
-                <ul className="text-sm text-blue-800 space-y-1">
-                  <li>• We'll review your request within 24-48 hours</li>
-                  <li>• If approved, we'll source and add the PDF to our library</li>
-                  <li>• You'll receive an email notification when it's available</li>
                   <li>• Pro users get priority processing for their requests</li>
                 </ul>
               </div>
