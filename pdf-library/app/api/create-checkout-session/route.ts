@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
-import { createServerClient } from '@/lib/supabase-server'
+import { createSupabaseServerClient } from '@/lib/supabase-server'
 
 export async function POST(req: Request) {
-  const supabase = createServerClient()
+  const supabase = createSupabaseServerClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   if (!user) {

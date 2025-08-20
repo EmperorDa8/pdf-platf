@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Check, Crown, FileText, Download, Zap } from 'lucide-react'
+import { Check, Crown } from 'lucide-react'
 import { toast } from 'sonner'
 
 export default function Pricing() {
@@ -33,7 +33,7 @@ export default function Pricing() {
       if (stripe) {
         stripe.redirectToCheckout({ sessionId })
       }
-    } catch (error) {
+    } catch {
       toast.error('Failed to start checkout')
     } finally {
       setLoading(false)
@@ -148,17 +148,17 @@ export default function Pricing() {
           <div className="space-y-6">
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="font-semibold text-lg mb-2">Can I cancel my Pro subscription anytime?</h3>
-              <p className="text-gray-600">Yes, you can cancel your Pro subscription at any time. You'll continue to have access until the end of your current billing period.</p>
+              <p className="text-gray-600">Yes, you can cancel your Pro subscription at any time. You&apos;ll continue to have access until the end of your current billing period.</p>
             </div>
             
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="font-semibold text-lg mb-2">What happens to my downloads if I downgrade to Free?</h3>
-              <p className="text-gray-600">You'll keep access to any PDFs you've already downloaded, but you'll only be able to access free PDFs going forward.</p>
+              <p className="text-gray-600">You&apos;ll keep access to any PDFs you&apos;ve already downloaded, but you&apos;ll only be able to access free PDFs going forward.</p>
             </div>
             
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="font-semibold text-lg mb-2">Do you offer refunds?</h3>
-              <p className="text-gray-600">We offer a 30-day money-back guarantee for Pro subscriptions. If you're not satisfied, contact us for a full refund.</p>
+              <p className="text-gray-600">We offer a 30-day money-back guarantee for Pro subscriptions. If you&apos;re not satisfied, contact us for a full refund.</p>
             </div>
           </div>
         </div>

@@ -4,14 +4,15 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2025-07-30.basil',
 })
 
-export const getStripe = () => {
+export const getStripe = async () => {
   if (typeof window !== 'undefined') {
-    return require('@stripe/stripe-js').loadStripe(
+    const { loadStripe } = await import('@stripe/stripe-js');
+    return loadStripe(
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-    )
+    );
   }
-  return null
-}
+  return null;
+};
 
 export const createCheckoutSession = async (priceId: string, customerId?: string) => {
   const session = await stripe.checkout.sessions.create({

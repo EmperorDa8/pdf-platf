@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation'
 export default function Dashboard() {
   const { user, loading, signOut } = useAuth()
   const router = useRouter()
-  const [isPro, setIsPro] = useState(false)
+  const isPro = false
 
   useEffect(() => {
     if (!loading && !user) {
@@ -171,7 +171,7 @@ export default function Dashboard() {
               <CardHeader>
                 <CardTitle>Request New PDF</CardTitle>
                 <CardDescription className="text-gray-700">
-                  Can't find what you're looking for? Request a new PDF
+                  Can&apos;t find what you&apos;re looking for? Request a new PDF
                 </CardDescription>
               </CardHeader>
               <CardContent>
