@@ -69,40 +69,7 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
 }
 
 export async function POST(req: NextRequest) {
-  const buf = await req.text();
-  const sig = req.headers.get('stripe-signature')!;
-
-  let event: Stripe.Event;
-
-  try {
-    event = stripe.webhooks.constructEvent(buf, sig, webhookSecret);
-  } catch (err) {
-    const errorMessage = err instanceof Error ? err.message : 'Unknown error';
-    console.log(`❌ Error message: ${errorMessage}`);
-    return new NextResponse(`Webhook Error: ${errorMessage}`, { status: 400 });
-  }
-
-  console.log('✅ Success:', event.id);
-
-  try {
-    switch (event.type) {
-      case 'checkout.session.completed':
-        await handleCheckoutSessionCompleted(event.data.object as Stripe.Checkout.Session);
-        break;
-      case 'customer.subscription.updated':
-        await handleSubscriptionUpdated(event.data.object as Stripe.Subscription);
-        break;
-      case 'customer.subscription.deleted':
-        await handleSubscriptionDeleted(event.data.object as Stripe.Subscription);
-        break;
-      default:
-        console.warn(`Unhandled event type: ${event.type}`);
-    }
-  } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    console.error(`Webhook handler error: ${errorMessage}`);
-    return new NextResponse(`Webhook handler error: ${errorMessage}`, { status: 500 });
-  }
-
-  return new NextResponse(JSON.stringify({ received: true }), { status: 200 });
+  // Temporarily disable Stripe webhook processing
+  console.log('Stripe webhook processing is currently disabled.');
+  return new NextResponse(JSON.stringify({ received: true, message: 'Webhook processing disabled' }), { status: 200 });
 }
