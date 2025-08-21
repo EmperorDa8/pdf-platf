@@ -6,40 +6,11 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Check, Crown } from 'lucide-react'
 import { toast } from 'sonner'
-import { getStripe } from '@/lib/stripe';
+
 
 export default function Pricing() {
   const { user } = useAuth()
-  const [loading, setLoading] = useState(false)
-
-  const handleUpgrade = async () => {
-    if (!user) {
-      toast.error('Please sign in to upgrade')
-      return
-    }
-
-    setLoading(true)
-    try {
-      const res = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ priceId: 'YOUR_STRIPE_PRICE_ID' }), // Replace with your actual price ID
-      })
-
-      const { sessionId } = await res.json()
-
-      const stripe = await getStripe()
-      if (stripe) {
-        stripe.redirectToCheckout({ sessionId })
-      }
-    } catch {
-      toast.error('Failed to start checkout')
-    } finally {
-      setLoading(false)
-    }
-  }
+  
 
   const plans = [
     {
@@ -69,8 +40,8 @@ export default function Pricing() {
         'PDF request priority',
         'Early access to new content'
       ],
-      buttonText: 'Upgrade to Pro',
-      buttonVariant: 'default' as const,
+      buttonText: 'Coming Soon',
+      buttonVariant: 'outline' as const,
       popular: true
     }
   ]
@@ -130,10 +101,8 @@ export default function Pricing() {
                 <Button 
                   className="w-full mt-6" 
                   variant={plan.buttonVariant}
-                  onClick={plan.name === 'Pro' ? handleUpgrade : undefined}
-                  disabled={loading}
                 >
-                  {loading ? 'Processing...' : plan.buttonText}
+                  {plan.buttonText}
                 </Button>
               </CardContent>
             </Card>
