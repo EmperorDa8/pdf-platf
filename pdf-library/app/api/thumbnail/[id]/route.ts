@@ -1,15 +1,9 @@
 import { generateAbstractThumbnail } from '@/lib/generate-thumbnail';
 import { NextRequest, NextResponse } from 'next/server';
 
-type RouteContext = {
-  params: {
-    id: string;
-  };
-};
-
-export const GET = async (req: NextRequest, context: RouteContext): Promise<NextResponse> => {
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const { id } = context.params;
+    const { id } = params;
     if (!id) {
       return new NextResponse('Bad Request: id is required', { status: 400 });
     }
@@ -25,4 +19,4 @@ export const GET = async (req: NextRequest, context: RouteContext): Promise<Next
     console.error('Error generating thumbnail:', error);
     return new NextResponse('Internal Server Error', { status: 500 });
   }
-};
+}
