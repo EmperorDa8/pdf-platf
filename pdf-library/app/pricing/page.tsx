@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Check, Crown } from 'lucide-react'
 import { toast } from 'sonner'
+import { getStripe } from '@/lib/stripe';
 
 export default function Pricing() {
   const { user } = useAuth()
