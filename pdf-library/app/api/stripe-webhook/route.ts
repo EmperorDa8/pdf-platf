@@ -39,34 +39,7 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
   console.log(`Subscription created for user ${userId}`);
 }
 
-async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
-  const { error } = await supabase
-    .from('subscriptions')
-    .update({
-      status: subscription.status,
-      current_period_end: new Date(subscription.current_period_end * 1000),
-    })
-    .eq('stripe_subscription_id', subscription.id);
 
-  if (error) {
-    throw new Error(`Error updating subscription: ${error.message}`);
-  }
-
-  console.log(`Subscription ${subscription.id} updated`);
-}
-
-async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
-  const { error } = await supabase
-    .from('subscriptions')
-    .update({ status: 'canceled' })
-    .eq('stripe_subscription_id', subscription.id);
-
-  if (error) {
-    throw new Error(`Error canceling subscription: ${error.message}`);
-  }
-
-  console.log(`Subscription ${subscription.id} canceled`);
-}
 
 export async function POST(req: NextRequest) {
   // Temporarily disable Stripe webhook processing
