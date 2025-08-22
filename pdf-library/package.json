@@ -18,9 +18,7 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tabs": "^1.1.12",
     "@radix-ui/react-toast": "^1.2.14",
-    
     "@supabase/auth-ui-react": "^0.4.7",
-    
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.54.0",
     "@types/nodemailer": "^6.4.17",
@@ -29,6 +27,7 @@
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.12",
     "jdenticon": "^3.2.0",
+    "lightningcss": "^1.30.1",
     "lucide-react": "^0.539.0",
     "next": "14.2.3",
     "next-themes": "^0.4.6",
@@ -36,7 +35,6 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sonner": "^2.0.7",
-    
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
